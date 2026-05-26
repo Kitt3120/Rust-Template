@@ -25,8 +25,14 @@
             protobuf
           ];
 
+          TEMPDIR = "/tmp/rust/shell";
+          TMPDIR = "/tmp/rust/shell";
+          TEMP = "/tmp/rust/shell";
+          TMP = "/tmp/rust/shell";
+
           shellHook = ''
             DATA_DIR="/tmp/rust"
+            SHELL_DIR="$DATA_DIR/shell"
             export CARGO_HOME="$DATA_DIR/cargo"
             export RUSTUP_HOME="$DATA_DIR/rustup"
 
@@ -34,6 +40,7 @@
 
             mkdir -p "$CARGO_HOME"
             mkdir -p "$RUSTUP_HOME"
+            mkdir -p "$SHELL_DIR"
 
             rustup default stable
             rustup toolchain install
