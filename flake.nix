@@ -25,19 +25,15 @@
             protobuf
           ];
 
-          TEMPDIR = "/tmp/rust/shell";
-          TMPDIR = "/tmp/rust/shell";
-          TEMP = "/tmp/rust/shell";
-          TMP = "/tmp/rust/shell";
-
           shellHook = ''
             DATA_DIR="/tmp/rust"
-            export RUSTUP_HOME="$DATA_DIR/rustup"
             export CARGO_HOME="$DATA_DIR/cargo"
+            export RUSTUP_HOME="$DATA_DIR/rustup"
+
             export PATH=$CARGO_HOME/bin:$PATH
+
             mkdir -p "$CARGO_HOME"
             mkdir -p "$RUSTUP_HOME"
-            mkdir -p "$DATA_DIR/shell"
 
             rustup default stable
             rustup toolchain install
