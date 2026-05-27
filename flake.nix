@@ -22,7 +22,6 @@
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
             rustup
-            protobuf
           ];
 
           TEMPDIR = "/tmp/rust/shell";
@@ -35,12 +34,11 @@
             SHELL_DIR="$DATA_DIR/shell"
             export CARGO_HOME="$DATA_DIR/cargo"
             export RUSTUP_HOME="$DATA_DIR/rustup"
-
             export PATH=$CARGO_HOME/bin:$PATH
 
+            mkdir -p "$SHELL_DIR"
             mkdir -p "$CARGO_HOME"
             mkdir -p "$RUSTUP_HOME"
-            mkdir -p "$SHELL_DIR"
 
             rustup default stable
             rustup toolchain install
