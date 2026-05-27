@@ -9,7 +9,7 @@ readme = "README.md"
 repository = "<repository>"
 license = "MIT"
 keywords = ["<keywords>", "<keywords>"]
-exclude = [".devcontainer", ".github", ".vscode"]
+exclude = [".envrc", ".direnv", ".devcontainer", ".github", ".vscode", "flake.nix", "flake.lock"]
 
 [profile.release]
 debug = false
