@@ -31,8 +31,8 @@
           TMP = "/tmp/rust/shell";
 
           shellHook = ''
-            PWD=$(pwd)
-            DATA_DIR="/tmp/rust/$PWD"
+            PROJECT_NAME=$(basename "$PWD")
+            DATA_DIR="/tmp/rust/$PROJECT_NAME"
             SHELL_DIR="$DATA_DIR/shell"
             export CARGO_HOME="$DATA_DIR/cargo"
             export RUSTUP_HOME="$DATA_DIR/rustup"
@@ -47,6 +47,9 @@
             rustup update
 
             cargo install cargo-edit
+            cargo install bacon
+            cargo install cargo-watch
+            cargo install cargo-outdated
 
             echo
             echo
@@ -56,9 +59,17 @@
             echo "Cargo installed at $CARGO_HOME"
             echo "git-cliff installed at $(which git-cliff)"
             echo "cargo-edit installed at $(which cargo-add)"
+            echo "bacon installed at $(which bacon)"
+            echo "cargo-watch installed at $(which cargo-watch)"
+            echo "cargo-outdated installed at $(which cargo-outdated)"
+            echo
             echo "$(rustup --version)"
             echo "$(cargo --version)"
             echo "$(git-cliff --version)"
+            echo "cargo-edit unknown, no --version flag available"
+            echo "$(bacon --version)"
+            echo "$(cargo-watch --version)"
+            echo "cargo-outdated unknown, no --version flag available"
           '';
         };
       }
