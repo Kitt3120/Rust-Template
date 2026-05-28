@@ -2,6 +2,7 @@ name: Publish pre-release
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 jobs:
   github:
     name: Publish GitHub
@@ -11,11 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
-      - name: Setup Rust toolchain for ubuntu-latest
-        uses: actions-rust-lang/setup-rust-toolchain@v1
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+      - name: Set up Rust toolchain
+        uses: actions-rust-lang/setup-rust-toolchain@46268bd060767258de96ed93c1251119784f2ab6
       - name: Package
-        uses: actions-rs/cargo@v1
+        uses: actions-rs/cargo@844f36862e911db73fe0815f00a4a2602c279505
         with:
           command: package
           args: --all-features
