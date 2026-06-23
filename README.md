@@ -48,18 +48,13 @@ Check out [Milestones](milestone), [Board](project), and [Issues](issues)
       - Build and test (windows)
       - Build and test (macos)
       - Block force push
-  - Release branches:
+  - Release tags:
     - Enforce: Active
-    - Target: release/\*\*
+    - Target: v*, \*.\*.\*, v*.\*.\*
     - Restrict updates
     - Restrict deletions
     - Require linear history
     - Require signed commits
-    - Require pull request before merging
-      - Required approvals: 1
-      - Dismiss stale pull request approvals when new commits are pushed
-      - Require conversation resolution before merging
-      - Request pull request review from Copilot
     - Require status checks to pass:
       - Require branches to be up to date before merging
       - Do not require status checks on creation
