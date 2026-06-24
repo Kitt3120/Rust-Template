@@ -16,10 +16,7 @@ jobs:
       - name: Set up Rust toolchain
         uses: actions-rust-lang/setup-rust-toolchain@46268bd060767258de96ed93c1251119784f2ab6
       - name: Package
-        uses: actions-rs/cargo@844f36862e911db73fe0815f00a4a2602c279505
-        with:
-          command: package
-          args: --all-features
+        run: cargo package --all-features
       - name: Read crate name
         id: crate_name
         run: echo "crate_name=$(cargo read-manifest | jq -r .name)" >> $GITHUB_OUTPUT
