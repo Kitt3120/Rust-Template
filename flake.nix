@@ -25,14 +25,9 @@
             git-cliff
           ];
 
-          TEMPDIR = "/tmp/rust/shell";
-          TMPDIR = "/tmp/rust/shell";
-          TEMP = "/tmp/rust/shell";
-          TMP = "/tmp/rust/shell";
-
           shellHook = ''
             PROJECT_NAME=$(basename "$PWD")
-            DATA_DIR="/tmp/rust/$PROJECT_NAME"
+            DATA_DIR="''${XDG_DATA_HOME:-$HOME/.local/share}/rust-dev-envs/$PROJECT_NAME"
             SHELL_DIR="$DATA_DIR/shell"
             export CARGO_HOME="$DATA_DIR/cargo"
             export RUSTUP_HOME="$DATA_DIR/rustup"
@@ -70,6 +65,9 @@
             echo "$(bacon --version)"
             echo "$(cargo-watch --version)"
             echo "cargo-outdated unknown, no --version flag available"
+            echo
+            echo "Happy coding! :)"
+            echo
           '';
         };
       }
