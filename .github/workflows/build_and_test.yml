@@ -21,7 +21,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
       - name: Set up Rust toolchain
-        uses: actions-rust-lang/setup-rust-toolchain@46268bd060767258de96ed93c1251119784f2ab6
+        uses: actions-rust-lang/setup-rust-toolchain@ecabd13d1c56bd1345c230e542e9144811ad706f
       - name: Build
         run: cargo build --release --all-features
       - name: Test
